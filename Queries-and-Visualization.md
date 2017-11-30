@@ -16,7 +16,7 @@
 - Hive Query
 
  ```sql
- SELECT year, count(*)  FROM h1b_data GROUP BY year ORDER BY year;
+ SELECT year, count(*) FROM h1b_data GROUP BY year ORDER BY year;
  ```
  
 - Visualization
