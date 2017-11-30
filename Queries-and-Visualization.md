@@ -28,7 +28,7 @@
 - Hive Query
 
 ```sql
-SELECT employer_name, visa_class, count(employer_name)as count FROM h1b_data WHERE visa_class = H-1B GROUP BY employer_name ORDER BY count desc limit 10;
+SELECT employer_name, visa_class, count(employer_name)as count FROM h1b_data WHERE visa_class = 'H-1B' GROUP BY employer_name, visa_class ORDER BY count desc limit 10;
 ```
 
 - Result
