@@ -15,8 +15,10 @@
 
 - Hive Query
 
-- Result
-
+ ```sql
+ SELECT year, count(*)  FROM h1b_data GROUP BY year ORDER BY year;
+ ```
+ 
 - Visualization
 
 ![](images/1.png)
