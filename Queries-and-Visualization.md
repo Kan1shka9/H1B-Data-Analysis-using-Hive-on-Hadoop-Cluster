@@ -15,8 +15,10 @@
 
 - Hive Query
 
-- Result
-
+ ```sql
+ SELECT year, count(*)  FROM h1b_data GROUP BY year ORDER BY year;
+ ```
+ 
 - Visualization
 
 ![](images/1.png)
@@ -24,28 +26,6 @@
 ###### Top 10 Employers to file H1B
 
 - Hive Query
-
-```sql
-CREATE EXTERNAL TABLE IF NOT EXISTS h1b_data
-(case_number STRING, 
-case_status STRING, 
-visa_class STRING,
-employer_name STRING,
-employer_state STRING,
-job_code STRING,
-job_title STRING,
-prevailing_wage BIGINT,
-wage_unit STRING,
-worksite_state STRING,
-financial_year STRING)
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
-WITH SERDEPROPERTIES ( "separatorChar" = ",", "quoteChar" = "\"") 
-STORED AS TEXTFILE TBLPROPERTIES("skip.header.line.count"="1");
-```
-
-```sql
-LOAD DATA INPATH 'example3/H-1B_Data.csv' OVERWRITE INTO TABLE h1b_data;
-```
 
 ```sql
 SELECT employer_name, visa_class, count(employer_name)as count FROM h1b_data WHERE visa_class = H-1B GROUP BY employer_name ORDER BY count desc limit 10;
@@ -75,24 +55,6 @@ ERNST & YOUNG U.S. LLP	24328
 - Hive Query
 
 ```sql
-CREATE EXTERNAL TABLE IF NOT EXISTS perm
-(case_number STRING, 
-case_status STRING,
-employer_name STRING, 
-employer_state STRING, 
-job_code STRING, 
-job_title STRING, 
-year INT) 
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
-WITH SERDEPROPERTIES ( "separatorChar" = ",", "quoteChar" = "\"") 
-STORED AS TEXTFILE TBLPROPERTIES("skip.header.line.count"="1");
-```
-
-```sql
-LOAD DATA INPATH 'example/PERM_Data_Combined.csv' OVERWRITE INTO TABLE perm;
-```
-
-```sql
 SELECT employer_name, count(employer_name)as count FROM perm GROUP BY employer_name ORDER BY count desc limit 10;
 ```
 
@@ -118,20 +80,6 @@ DELOITTE CONSULTING LLP	2616
 ###### Top companies who filed green card application in year 2017 for F-1 students
 
 - Hive Query
-
-```sql
-create table perm_data2
-(Emp_name string,
-Class_of_Admission string,
-Education string)
-ROW FORMAT DELIMITED
-FIELDS TERMINATED BY ','
-STORED AS TEXTFILE TBLPROPERTIES("skip.header.line.count"="1");
-```
-
-```sql
-LOAD DATA INPATH '/tmp/PERM1.csv' OVERWRITE INTO TABLE perm_data2;
-```
 
 ```sql
 select Emp_name, Class_of_Admission, Education from perm_data2 where Class_of_Admission = 'F-1';
@@ -168,45 +116,6 @@ INTEL CORPORATION  	F-1     	Master's
 - Hive Query
 
 ```sql
-CREATE EXTERNAL TABLE IF NOT EXISTS h1b_data
-(case_number STRING, 
-case_status STRING, 
-visa_class STRING,
-employer_name STRING,
-employer_state STRING,
-job_code STRING,
-job_title STRING,
-prevailing_wage BIGINT,
-wage_unit STRING,
-worksite_state STRING,
-financial_year STRING)
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
-WITH SERDEPROPERTIES ( "separatorChar" = ",", "quoteChar" = "\"") 
-STORED AS TEXTFILE TBLPROPERTIES("skip.header.line.count"="1");
-```
-
-```sql
-LOAD DATA INPATH "/user/rtiwari2/project/h1b_data.csv" OVERWRITE INTO TABLE h1b_data;
-```
-
-```sql
-SELECT financial_year, job_code, cnt 
-FROM 	
-(SELECT financial_year, job_code, count(*) as cnt, RANK() 
-OVER (PARTITION BY financial_year ORDER BY count(*) DESC) as rnk 
-FROM h1b_data GROUP BY financial_year, job_code) as tg 
-WHERE rnk=1;
-```
-
-```sql
-CREATE EXTERNAL TABLE IF NOT EXISTS yearly_data
-(financial_year STRING, job_code STRING, no_of_application BIGINT)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-STORED AS TEXTFILE LOCATION '/user/rtiwari2/project/';
-```
-
-```sql
-INSERT OVERWRITE TABLE yearly_data 
 SELECT financial_year, job_code, cnt 
 FROM 	
 (SELECT financial_year, job_code, count(*) as cnt, RANK() 
@@ -224,32 +133,6 @@ WHERE rnk=1;
 - Hive Query
 
 ```sql
-DROP TABLE IF EXISTS pw_2010_17;
-```
-
-```sql
-CREATE EXTERNAL TABLE IF NOT EXISTS pw_2010_17
-(case_no string, 
-visa_class string, 
-emp_name string, 
-emp_city string, 
-emp_state string, 
-job_title string, 
-education_level string, 
-wage_rate double, 
-wage_unit string, 
-wage_level string, 
-year date)
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
-WITH SERDEPROPERTIES ( "separatorChar" = ",", "quoteChar" = "\"") 
-STORED AS TEXTFILE TBLPROPERTIES("skip.header.line.count"="1");
-```
-
-```sql
-LOAD DATA INPATH "/user/nikeeta/new/PW_FY2010_2017.csv" OVERWRITE INTO TABLE pw_2010_17;
-```
-
-```sql
 SELECT  B.YEAR, AVG(B.wage_rate) AS AVG_SALARY FROM pw_2010_17 B
 WHERE B.JOB_TITLE LIKE '%Analysts' AND B.VISA_CLASS = 'PERM' 
 GROUP BY B.year 
@@ -263,25 +146,6 @@ ORDER BY B.year LIMIT 7;
 ###### Highest Average Salaries Based on Job Titles 
 
 - Hive Query
-
-```sql
-DROP TABLE IF EXISTS h1b; 
-CREATE EXTERNAL TABLE IF NOT EXISTS h1b
-(case_status string,
-visa_class string, 
-employer_name string,
-job_title string, 
-salary double, 
-worksite_city string,
-worksite_state string)
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
-WITH SERDEPROPERTIES ( "separatorChar" = ",", "quoteChar" = "\"") 
-STORED AS TEXTFILE TBLPROPERTIES("skip.header.line.count"="1");
-```
-
-```sql
-LOAD DATA INPATH "/user/yuvasree/analysis/h1bdata.csv" OVERWRITE INTO TABLE h1b;
-```
 
 ```sql
 SELECT B.JOB_TITLE, AVG(B.salary) AS AVG_SALARY FROM H1B B
@@ -306,25 +170,6 @@ ANALYST 64469.57977812995 → 65K
 ###### Highest Average Salaries Based on Worksite State
 
 - Hive Query
-
-```sql
-DROP TABLE IF EXISTS h1b; 
-CREATE EXTERNAL TABLE IF NOT EXISTS h1b
-(case_status string,
-visa_class string, 
-employer_name string,
-job_title string, 
-salary double, 
-worksite_city string,
-worksite_state string)
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
-WITH SERDEPROPERTIES ( "separatorChar" = ",", "quoteChar" = "\"") 
-STORED AS TEXTFILE TBLPROPERTIES("skip.header.line.count"="1");
-```
-
-```sql
-LOAD DATA INPATH "/user/yuvasree/analysis/h1bdata.csv" OVERWRITE INTO TABLE h1b;
-```
 
 ```sql
 SELECT B.WORKSITE_STATE, AVG(B.salary) AS AVG_SALARY FROM H1B B
