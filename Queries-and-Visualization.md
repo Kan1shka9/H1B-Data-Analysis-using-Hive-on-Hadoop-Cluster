@@ -31,21 +31,6 @@
 SELECT employer_name, visa_class, count(employer_name)as count FROM h1b_data WHERE visa_class = 'H-1B' GROUP BY employer_name, visa_class ORDER BY count desc limit 10;
 ```
 
-- Result
-
-```
-INFOSYS LIMITED	151180
-TATA CONSULTANCY SERVICES LIMITED	81147
-WIPRO LIMITED	56576
-DELOITTE CONSULTING LLP	47368
-IBM INDIA PRIVATE LIMITED	45043
-ACCENTURE LLP	40492
-MICROSOFT CORPORATION	39664
-HCL AMERICA, INC.	27997
-CAPGEMINI AMERICA INC	26331
-ERNST & YOUNG U.S. LLP	24328
-```
-
 - Visualization
 
 ![](images/2.png)
@@ -58,21 +43,6 @@ ERNST & YOUNG U.S. LLP	24328
 SELECT employer_name, count(employer_name)as count FROM perm GROUP BY employer_name ORDER BY count desc limit 10;
 ```
 
-- Result
-
-```
-COGNIZANT TECHNOLOGY SOLUTIONS US CORPORATION 20619
-MICROSOFT CORPORATION	18282
-INTEL CORPORATION	8951
-GOOGLE INC.	7664
-AMAZON CORPORATE LLC	5488
-CISCO SYSTEMS, INC.	4783
-APPLE INC.	3874
-INFOSYS LTD.	3368
-ORACLE AMERICA, INC.	3207
-DELOITTE CONSULTING LLP	2616
-```
-
 - Visualization
 
 ![](images/3.png)
@@ -83,28 +53,6 @@ DELOITTE CONSULTING LLP	2616
 
 ```sql
 select Emp_name, Class_of_Admission, Education from perm_data2 where Class_of_Admission = 'F-1';
-```
-
-- Result
-
-```
-INTEL CORPORATION  	F-1     	Master's          	
-INTEL CORPORATION  	F-1     	Master's          	
-INTEL CORPORATION  	F-1     	Master's          	
-INTEL CORPORATION  	F-1     	Master's          	
-INTEL CORPORATION  	F-1     	Master's          	
-INTEL CORPORATION  	F-1     	Master's          	
-INTEL CORPORATION  	F-1     	Master's          	
-ilexlaw pllc      	F-1     	Master's          	
-Gilsanz Murray Steficek LLP Engineers and Architecture       	F-1     	Doctorate       	
-JGF NY Corp    	F-1     	None 	
-HARVARD MANAGEMENT ASSOCIATES INC.     	F-1     	Master's          	
-Pats Pizzeria Hockessin LLC      	F-1     	None 	
-OVERSEAS MANPOWER SOLUTIONS CORP.       	F-1     	None 	
-NORA MANUFACTURING INC. 	F-1     	Associate's      	
-INTEL CORPORATION  	F-1     	Master's          	
-INTEL CORPORATION  	F-1     	Master's          	
-INTEL CORPORATION  	F-1     	Master's  
 ```
 
 - Visualization
@@ -154,15 +102,6 @@ CASE_STATUS = 'CERTIFIED' GROUP BY B.JOB_TITLE
 ORDER BY AVG_SALARY DESC 
 ```
 
-- Result
-
-```
-DATA ENGINEER	 92965.55011441647 → 92K
-DATA SCIENTIST 87162.42280487805 → 87K
-CONSULTANT 70405.68856489423 → 70K 
-ANALYST 64469.57977812995 → 65K
-```
-
 - Visualization
 
 ![](images/6.png)
@@ -178,21 +117,6 @@ VISA_CLASS = 'H-1B' AND
 CASE_STATUS = 'CERTIFIED'
 GROUP BY B.WORKSITE_STATE
 ORDER BY AVG_SALARY DESC LIMIT 10
-```
-
-- Result
-
-```
-WV: West Virginia 94158.85
-CA: California 92200.0002853562
-WA: Washington 90263.96657461085
-WY: Wyoming 80036.92800000001
-OR: Oregon 78575.1987223465
-NY: New York 78446.32727248245
-MA: Massachusetts 78209.25116780466
-DC: Washington DC 78082.35710863986
-CT: Connecticut 78050.97998304127
-MT:Montana 77900.45751633987
 ```
 
 - Visualization
