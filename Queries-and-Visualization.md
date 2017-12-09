@@ -3,13 +3,13 @@
 ###### Index
 
 - [``Number of H-1B applications filed through 2008 to 2017``](#number-of-h1b-applications-filed-through-2008-to-2017)
-- [``Top 10 employers to file H-1B``](https://github.com/Kan1shka9/H1B-Data-Analysis-using-Hive-on-Hadoop-Cluster/blob/master/Queries-and-Visualization.md#top-10-employers-to-file-h1b)
-- [``Top 10 employers to file PERM``](https://github.com/Kan1shka9/H1B-Data-Analysis-using-Hive-on-Hadoop-Cluster/blob/master/Queries-and-Visualization.md#top-10-employers-to-file-green-card-perm)
-- [``Top companies who filed green card application in year 2017 for F-1 students``](https://github.com/Kan1shka9/H1B-Data-Analysis-using-Hive-on-Hadoop-Cluster/blob/master/Queries-and-Visualization.md#top-companies-who-filed-green-card-application-in-year-2017-for-f-1-students)
-- [``Top job titles with highest application over the year 2008-2017``](https://github.com/Kan1shka9/H1B-Data-Analysis-using-Hive-on-Hadoop-Cluster/blob/master/Queries-and-Visualization.md#top-job-titles-with-highest-application-over-the-year-2008-2017)
-- [``Average Salary for an analysts position from year 2011 to 2017``](https://github.com/Kan1shka9/H1B-Data-Analysis-using-Hive-on-Hadoop-Cluster/blob/master/Queries-and-Visualization.md#average-salary-for-an-analysts-position-from-year-2011-to-2017)
-- [``Highest Average Salaries Based on Job Titles``](https://github.com/Kan1shka9/H1B-Data-Analysis-using-Hive-on-Hadoop-Cluster/blob/master/Queries-and-Visualization.md#highest-average-salaries-based-on-job-titles)
-- [``Highest Average Salaries Based on Worksite State``](https://github.com/Kan1shka9/H1B-Data-Analysis-using-Hive-on-Hadoop-Cluster/blob/master/Queries-and-Visualization.md#highest-average-salaries-based-on-worksite-state)
+- [``Top 10 employers to file H-1B``](#top-10-employers-to-file-h1b)
+- [``Top 10 employers to file PERM``](#top-10-employers-to-file-green-card-perm)
+- [``Top companies who filed green card application in year 2017 for F-1 students``](#top-companies-who-filed-green-card-application-in-year-2017-for-f-1-students)
+- [``Top job titles with highest application over the year 2008-2017``](#top-job-titles-with-highest-application-over-the-year-2008-2017)
+- [``Average Salary for an analysts position from year 2011 to 2017``](#average-salary-for-an-analysts-position-from-year-2011-to-2017)
+- [``Highest Average Salaries Based on Job Titles``](#highest-average-salaries-based-on-job-titles)
+- [``Highest Average Salaries Based on Worksite State``](#highest-average-salaries-based-on-worksite-state)
 
 ###### Number of H1B applications filed through 2008 to 2017
 
