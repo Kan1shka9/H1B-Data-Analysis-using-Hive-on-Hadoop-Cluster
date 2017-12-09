@@ -2,7 +2,7 @@
 
 ###### Index
 
-- [``Number of H-1B applications filed through 2008 to 2017``](https://github.com/Kan1shka9/H1B-Data-Analysis-using-Hive-on-Hadoop-Cluster/blob/master/Queries-and-Visualization.md#number-of-h1b-applications-filed-through-2008-to-2017)
+- [``Number of H-1B applications filed through 2008 to 2017``](#number-of-h1b-applications-filed-through-2008-to-2017)
 - [``Top 10 employers to file H-1B``](https://github.com/Kan1shka9/H1B-Data-Analysis-using-Hive-on-Hadoop-Cluster/blob/master/Queries-and-Visualization.md#top-10-employers-to-file-h1b)
 - [``Top 10 employers to file PERM``](https://github.com/Kan1shka9/H1B-Data-Analysis-using-Hive-on-Hadoop-Cluster/blob/master/Queries-and-Visualization.md#top-10-employers-to-file-green-card-perm)
 - [``Top companies who filed green card application in year 2017 for F-1 students``](https://github.com/Kan1shka9/H1B-Data-Analysis-using-Hive-on-Hadoop-Cluster/blob/master/Queries-and-Visualization.md#top-companies-who-filed-green-card-application-in-year-2017-for-f-1-students)
