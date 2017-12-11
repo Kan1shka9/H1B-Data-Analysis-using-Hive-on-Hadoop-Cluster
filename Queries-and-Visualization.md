@@ -117,7 +117,7 @@ WHERE rnk=1;
 - Hive Query
 
 ```sql
-SELECT  B.YEAR, AVG(B.wage_rate) AS AVG_SALARY FROM pw_2010_17 B
+SELECT  B.YEAR, AVG(B.wage_rate) AS AVG_SALARY FROM prevailing_wages B
 WHERE B.JOB_TITLE LIKE '%Analysts' AND B.VISA_CLASS = 'PERM' 
 GROUP BY B.year 
 ORDER BY B.year LIMIT 7;
