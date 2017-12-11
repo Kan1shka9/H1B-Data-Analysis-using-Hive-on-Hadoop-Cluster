@@ -76,7 +76,7 @@ SELECT employer_name, visa_class, count(employer_name)as count FROM h1b_data_com
 - Hive Query
 
 ```sql
-SELECT emp_name, count(emp_name)as count FROM perm GROUP BY emp_name ORDER BY count desc limit 10;
+SELECT emp_name, count(emp_name)as count FROM perm_data GROUP BY emp_name ORDER BY count desc limit 10;
 ```
 
 - Visualization
