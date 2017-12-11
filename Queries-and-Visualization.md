@@ -13,10 +13,46 @@
 
 ###### Number of H1B applications filed through 2008 to 2017
 
+```sql
+CREATE EXTERNAL TABLE IF NOT EXISTS h1b_data_combined(case_number STRING, case_status STRING, case_submitted_date DATE,
+decision_date DATE, visa_class STRING, employement_start_date DATE, 
+employment_end_date DATE, employer_name STRING, employer_address STRING, 
+employer_city STRING, employer_state STRING, employer_postal_code BIGINT, 
+designation STRING, job_code STRING, job_title STRING, salary BIGINT,naics_code BIGINT, 
+total_workers BIGINT, prevailing_wage BIGINT, wage_unit STRING, 
+wage_source STRING, wage_source_yr STRING, wage_source_other STRING, 
+worksite_city STRING, worksite_state STRING,
+financial_year STRING)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
+WITH SERDEPROPERTIES ( "separatorChar" = ",", "quoteChar" = "\"") STORED AS TEXTFILE
+TBLPROPERTIES("skip.header.line.count"="1");
+```
+
+```sql
+CREATE EXTERNAL TABLE IF NOT EXISTS prevailing_wages (case_no string,
+visa_class string, emp_name string,
+emp_city string, emp_state string,
+job_title string,
+education_level string, wage_rate double,
+wage_unit string, wage_level string, year date)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES ( "separatorChar" = ",", "quoteChar" = "\"") STORED AS TEXTFILE
+TBLPROPERTIES("skip.header.line.count"="1");
+```
+
+```sql
+CREATE EXTERNAL TABLE IF NOT EXISTS perm_data (emp_name string, 
+class_of_admission string, 
+education string) 
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES ( "separatorChar" = ",", "quoteChar" = "\"") STORED AS TEXTFILE
+TBLPROPERTIES("skip.header.line.count"="1");
+```
+
 - Hive Query
 
  ```sql
- SELECT year, count(*) FROM h1b_data GROUP BY year ORDER BY year;
+ SELECT financial_year, count(*) FROM h1b_data GROUP BY year ORDER BY year;
  ```
  
 - Visualization
@@ -40,7 +76,7 @@ SELECT employer_name, visa_class, count(employer_name)as count FROM h1b_data WHE
 - Hive Query
 
 ```sql
-SELECT employer_name, count(employer_name)as count FROM perm GROUP BY employer_name ORDER BY count desc limit 10;
+SELECT emp_name, count(emp_name)as count FROM perm GROUP BY emp_name ORDER BY count desc limit 10;
 ```
 
 - Visualization
