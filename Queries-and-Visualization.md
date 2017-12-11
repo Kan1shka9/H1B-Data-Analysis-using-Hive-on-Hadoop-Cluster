@@ -159,4 +159,6 @@ ORDER BY AVG_SALARY DESC LIMIT 10
 
 ![](images/7.png)
 
+**``Visualization using 3D Maps``**
+
 [![](images/thumb.png)](https://www.youtube.com/watch?v=iy3yLLoTTfg?rel=0 "Highest Average Salaries Based on Worksite State")
