@@ -88,7 +88,7 @@ SELECT emp_name, count(emp_name)as count FROM perm GROUP BY emp_name ORDER BY co
 - Hive Query
 
 ```sql
-select Emp_name, Class_of_Admission, Education from perm_data2 where Class_of_Admission = 'F-1';
+select Emp_name, Class_of_Admission, Education from perm_data where Class_of_Admission = 'F-1';
 ```
 
 - Visualization
