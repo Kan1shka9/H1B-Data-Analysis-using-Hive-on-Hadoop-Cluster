@@ -11,7 +11,7 @@
 - [``Highest Average Salaries Based on Job Titles``](#highest-average-salaries-based-on-job-titles)
 - [``Highest Average Salaries Based on Worksite State``](#highest-average-salaries-based-on-worksite-state)
 
-###### Number of H1B applications filed through 2008 to 2017
+###### Table Creation
 
 ```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS h1b_data_combined(case_number STRING, case_status STRING, case_submitted_date DATE,
@@ -48,6 +48,8 @@ ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
 WITH SERDEPROPERTIES ( "separatorChar" = ",", "quoteChar" = "\"") STORED AS TEXTFILE
 TBLPROPERTIES("skip.header.line.count"="1");
 ```
+
+###### Number of H1B applications filed through 2008 to 2017
 
 - Hive Query
 
