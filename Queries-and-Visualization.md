@@ -52,7 +52,7 @@ TBLPROPERTIES("skip.header.line.count"="1");
 - Hive Query
 
  ```sql
- SELECT financial_year, count(*) FROM h1b_data GROUP BY year ORDER BY year;
+ SELECT financial_year, count(*) FROM h1b_data_combined GROUP BY year ORDER BY year;
  ```
  
 - Visualization
@@ -64,7 +64,7 @@ TBLPROPERTIES("skip.header.line.count"="1");
 - Hive Query
 
 ```sql
-SELECT employer_name, visa_class, count(employer_name)as count FROM h1b_data WHERE visa_class = 'H-1B' GROUP BY employer_name, visa_class ORDER BY count desc limit 10;
+SELECT employer_name, visa_class, count(employer_name)as count FROM h1b_data_combined WHERE visa_class = 'H-1B' GROUP BY employer_name, visa_class ORDER BY count desc limit 10;
 ```
 
 - Visualization
@@ -104,7 +104,7 @@ SELECT financial_year, job_code, cnt
 FROM 	
 (SELECT financial_year, job_code, count(*) as cnt, RANK() 
 OVER (PARTITION BY financial_year ORDER BY count(*) DESC) as rnk 
-FROM h1b_data GROUP BY financial_year, job_code) as tg 
+FROM h1b_data_combined GROUP BY financial_year, job_code) as tg 
 WHERE rnk=1;
 ```
 
